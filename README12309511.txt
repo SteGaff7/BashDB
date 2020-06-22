@@ -1,0 +1,38 @@
+README:
+
+This is the read me file for my database management system.
+The zipped folder (project12309511) should contain, the README, a pdf report and 8 scripts 
+(create_database, create_table, insert, select, client, server, P, V).
+
+Download all scripts and run in terminal.
+
+1.) Run the server.sh with no arguments in one terminal.
+2.) Run the client.sh with an ID(s) of your choice or "admin" in one or multiple terminals.
+3.) The client will now be prompted to enter their request.
+4.) Valid requests:
+	- create_database database_name
+	- create_table database_name table_name header_columns(seperated by commas)
+	- insert database_name table_name column_entries(seperated by commas)
+	- select database_name table_name
+	- select database_name table_name queried_columns
+	- select database_name table_name queried_columns column where_value (where
+	  clause)
+	- exit
+	- shutdown (admin use only)
+
+5.) The client script should be exited using request "exit" however ctrl_c and ctrl_z
+will also exit and cleanup sufficiently. 
+6.) The server script can be kept running however it should be stopped before the 
+terminal is closed so that the appropraite cleanup is carried out, this can be achieved 
+by running request "shutdown" as client admin or using ctrl_c or ctrl_z.
+
+Notes on requests & parameter entries:
+
+Only the admin may run the request shutdown which shuts the server and logs off clients.
+Any entry that requires columns separated by commas cannot have spaces between words
+and the commas. 
+For the select query, specified columns must be in order eg. 1,2,4, not 2,4,1 this 
+will ensure correct error handling is carried out.
+For the "bonus" select where clause query, the paramters are the same as the select query 
+with the addition of the column number of the where value and this value. For instance:
+select database table 1,2,4 2 Murphy --> return columns 1,2,4 where column 2 = 'Murphy'.
